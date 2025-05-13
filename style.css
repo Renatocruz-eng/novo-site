@@ -3,51 +3,38 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: Arial, sans-serif;
+  background: #fff;
 }
-
 header {
   background-color: #0A621C;
-  padding: 10px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
+  padding: 20px 0;
+  text-align: center;
 }
-
 .logo {
   height: 60px;
   display: block;
   margin: 0 auto;
 }
-
 nav {
   background-color: #0A621C;
   text-align: center;
   padding: 10px 0;
 }
-
 nav a {
-  color: white;
-  text-decoration: none;
+  color: #fff;
   margin: 0 15px;
+  text-decoration: none;
   font-weight: bold;
 }
-
-.banner {
-  background-image: url('images/banner.jpg');
-  background-size: cover;
-  background-position: center;
-  color: white;
-  height: 500px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+main {
+  padding: 40px;
+  text-align: center;
 }
-
-.banner h1 {
-  background-color: rgba(0, 0, 0, 0.5);
+footer {
+  background: #0A621C;
+  color: white;
+  text-align: center;
   padding: 20px;
-  border-radius: 10px;
 }
