@@ -38,3 +38,25 @@ footer {
   text-align: center;
   padding: 20px;
 }
+.nav-servicos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.nav-servicos button {
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: #0A621C;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.nav-servicos button:hover {
+  background-color: #084e16;
+}
