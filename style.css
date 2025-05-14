@@ -298,17 +298,20 @@ nav a:hover {
 .rodape {
   background-color: #0A621C;
   color: white;
-  padding: 30px 20px 10px 20px;
   font-family: Arial, sans-serif;
+  padding-top: 30px;
+  margin-top: 40px;
 }
 
 .rodape-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 40px;
   max-width: 1200px;
   margin: 0 auto;
+  padding: 0 20px 30px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
 }
 
 .rodape-coluna {
@@ -324,6 +327,7 @@ nav a:hover {
 .rodape-coluna ul {
   list-style: none;
   padding: 0;
+  margin: 0;
 }
 
 .rodape-coluna ul li {
@@ -341,19 +345,20 @@ nav a:hover {
 
 .rodape-logo {
   width: 120px;
+  display: block;
   margin-bottom: 10px;
 }
 
 .rodape-baixo {
   text-align: center;
   border-top: 1px solid #ffffff44;
-  margin-top: 20px;
-  padding-top: 10px;
+  padding: 15px 10px;
+  background-color: #0A621C;
   font-size: 14px;
 }
 
 .creditos-site {
-  margin-top: 8px;
+  margin-top: 6px;
   font-size: 13px;
   color: #c1eccc;
 }
