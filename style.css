@@ -295,3 +295,65 @@ nav a:hover {
 .icon-social:hover {
   transform: scale(1.1);
 }
+.rodape {
+  background-color: #0A621C;
+  color: white;
+  padding: 30px 20px 10px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.rodape-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 40px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.rodape-coluna {
+  flex: 1 1 250px;
+}
+
+.rodape-coluna h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.rodape-coluna ul {
+  list-style: none;
+  padding: 0;
+}
+
+.rodape-coluna ul li {
+  margin-bottom: 6px;
+}
+
+.rodape-coluna ul li a {
+  color: #d4f4dd;
+  text-decoration: none;
+}
+
+.rodape-coluna ul li a:hover {
+  text-decoration: underline;
+}
+
+.rodape-logo {
+  width: 120px;
+  margin-bottom: 10px;
+}
+
+.rodape-baixo {
+  text-align: center;
+  border-top: 1px solid #ffffff44;
+  margin-top: 20px;
+  padding-top: 10px;
+  font-size: 14px;
+}
+
+.creditos-site {
+  margin-top: 8px;
+  font-size: 13px;
+  color: #c1eccc;
+}
