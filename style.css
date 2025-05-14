@@ -197,3 +197,85 @@ label {
 .data-atual {
   font-weight: bold;
 }
+/* HEADER */
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 30px;
+  background-color: #ffffff;
+  border-bottom: 2px solid #0A621C;
+}
+
+.logo {
+  height: 50px;
+}
+
+nav a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #0A621C;
+  font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+/* DATA */
+.barra-topo {
+  background-color: #0A621C;
+  color: #fff;
+  padding: 6px 0;
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+.data-atual {
+  font-weight: bold;
+}
+
+/* COTAÇÕES */
+.cotacoes-container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  background-color: #e6f0e8;
+  padding: 12px 0;
+  font-family: Arial, sans-serif;
+  border-bottom: 2px solid #0A621C;
+  flex-wrap: wrap;
+}
+
+.cotacao {
+  text-align: center;
+  font-size: 14px;
+}
+
+.cotacao .titulo {
+  display: block;
+  font-weight: bold;
+  color: #0A621C;
+}
+
+.cotacao .valor {
+  display: block;
+  font-size: 16px;
+  color: #000;
+}
+
+.cotacao .variacao {
+  display: block;
+  font-size: 13px;
+  margin-top: 2px;
+}
+
+.variacao.positiva {
+  color: green;
+}
+
+.variacao.negativa {
+  color: red;
+}
