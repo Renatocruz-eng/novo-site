@@ -8,25 +8,33 @@ body {
   font-family: Arial, sans-serif;
 }
 header {
-  background-color: #0A621C;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px 0;
-  text-align: center;
+  background-color: #ffffff;
+  border-bottom: 2px solid #0A621C;
 }
 .logo {
-  height: 60px;
-  display: block;
-  margin: 0 auto;
+  height: 100px; /* aumenta o tamanho da logo */
+  margin-bottom: 10px;
 }
 nav {
-  background-color: #0A621C;
-  text-align: center;
-  padding: 10px 0;
+  display: flex;
+  gap: 30px;
+  justify-content: center;
+  flex-wrap: wrap;
 }
+
 nav a {
-  color: white;
-  margin: 0 10px;
   text-decoration: none;
+  color: #0A621C;
   font-weight: bold;
+  font-family: Arial, sans-serif;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
 main {
   padding: 30px;
@@ -154,23 +162,10 @@ label {
   left: 50%;
   transform: translate(-50%, -50%);
   color: white;
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.7);
-  font-size: 2em;
+  font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
-  padding: 10px;
-}
-.banner-texto {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  color: white; /* Aqui está a mágica */
-  font-size: 2em;
-  text-align: center;
-  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.6); /* melhora a leitura sobre a imagem */
-  width: 100%;
-  padding: 0 20px;
+  text-shadow: 2px 2px 4px #000; /* sombra pra destacar */
 }
 
 .hero-banner {
