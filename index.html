@@ -44,5 +44,50 @@
   </a>
 </div>
 </section>
+<!-- INÍCIO BARRA DE DATA E COTAÇÕES -->
+<div class="barra-topo">
+  <div class="data-atual" id="data-atual"></div>
+</div>
+
+<div class="cotacoes-container">
+  <div class="cotacao">
+    <span class="titulo">Dólar</span>
+    <span class="valor">R$ 5,63</span>
+    <span class="variacao positiva">▲ 0,35%</span>
+  </div>
+  <div class="cotacao">
+    <span class="titulo">Soja</span>
+    <span class="valor">R$ 140,50</span>
+    <span class="variacao negativa">▼ 0,28%</span>
+  </div>
+  <div class="cotacao">
+    <span class="titulo">Milho</span>
+    <span class="valor">R$ 82,30</span>
+    <span class="variacao positiva">▲ 0,18%</span>
+  </div>
+  <div class="cotacao">
+    <span class="titulo">Boi Gordo</span>
+    <span class="valor">R$ 238,75</span>
+    <span class="variacao negativa">▼ 0,10%</span>
+  </div>
+</div>
+<!-- FIM BARRA DE DATA E COTAÇÕES -->
+
+<script>
+  // Adiciona a data atual em tempo real no formato: Terça-feira, 14 de Maio de 2025
+  const diasSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+  const meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+
+  const hoje = new Date();
+  const diaSemana = diasSemana[hoje.getDay()];
+  const dia = hoje.getDate().toString().padStart(2, '0');
+  const mes = meses[hoje.getMonth()];
+  const ano = hoje.getFullYear();
+
+  const dataFormatada = `${diaSemana}, ${dia} de ${mes} de ${ano}`;
+  document.getElementById('data-atual').textContent = dataFormatada;
+</script>
+
 </body>
+
 </html>
