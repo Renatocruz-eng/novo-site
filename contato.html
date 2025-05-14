@@ -15,8 +15,23 @@
     </nav>
   </header>
   <main>
+    <form action="mailto:seuemail@seudominio.com" method="POST" enctype="multipart/form-data">
+  <label for="nome">Nome:</label><br>
+  <input type="text" id="nome" name="nome" required><br><br>
+
+  <label for="email">E-mail:</label><br>
+  <input type="email" id="email" name="email" required><br><br>
+
+  <label for="mensagem">Mensagem:</label><br>
+  <textarea id="mensagem" name="mensagem" rows="4" required></textarea><br><br>
+
+  <label for="arquivo">Anexar documento (PDF, JPG ou PNG):</label><br>
+  <input type="file" id="arquivo" name="arquivo" accept=".pdf, image/jpeg, image/png"><br><br>
+
+  <button type="submit">Enviar</button>
+</form>
     <h1>Entre em Contato</h1>
-    <p>Telefone: (00) 00000-0000</p>
+    <p>Telefone: (00) 99615-0440</p>
     <p>WhatsApp: (00) 90000-0000</p>
     <p>E-mail: contato@secaf.com.br</p>
     <p>Endereço: Rua Exemplo, 123 - Cidade/UF</p>
