@@ -12,8 +12,8 @@ header {
   flex-direction: column;
   align-items: center;
   padding: 20px 0;
-  background-color: #ffffff;
-  border-bottom: 2px solid #0A621C;
+  background-color: #0A621C;
+  border-bottom: 2px solid hsl(150, 9%, 96%);
 }
 .logo {
   height: 100px; /* aumenta o tamanho da logo */
@@ -55,7 +55,7 @@ footer {
 }
 .instagram-float {
   position: fixed;
-  bottom: 90px;
+  bottom: 20px;
   right: 20px;
   z-index: 1000;
 }
