@@ -343,12 +343,6 @@ nav a:hover {
   text-decoration: underline;
 }
 
-.rodape-logo {
-  width: 120px;
-  display: block;
-  margin-bottom: 10px;
-}
-
 .rodape-baixo {
   text-align: center;
   border-top: 1px solid #ffffff44;
@@ -361,4 +355,23 @@ nav a:hover {
   margin-top: 6px;
   font-size: 13px;
   color: #c1eccc;
+}
+.rodape-logos {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 10px 20px;
+  background-color: #0A621C;
+}
+
+.rodape-logos img {
+  height: 40px;
+  object-fit: contain;
+  opacity: 0.9;
+  transition: transform 0.3s ease;
+}
+
+.rodape-logos img:hover {
+  transform: scale(1.05);
+  opacity: 1;
 }
