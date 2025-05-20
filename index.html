@@ -1,0 +1,121 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>SECAF - Início</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <img src="images/logo.png" alt="Logo SECAF" class="logo">
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="servicos.html">Serviços</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <!-- INÍCIO BARRA DE DATA E COTAÇÕES -->
+  <div class="barra-topo">
+    <div class="data-atual" id="data-atual"></div>
+  </div>
+
+  <div class="cotacoes-container">
+    <div class="cotacao">
+      <span class="titulo">Dólar</span>
+      <span class="valor">R$ 5,63</span>
+      <span class="variacao positiva">▲ 0,35%</span>
+    </div>
+    <div class="cotacao">
+      <span class="titulo">Soja</span>
+      <span class="valor">R$ 140,50</span>
+      <span class="variacao negativa">▼ 0,28%</span>
+    </div>
+    <div class="cotacao">
+      <span class="titulo">Milho</span>
+      <span class="valor">R$ 82,30</span>
+      <span class="variacao positiva">▲ 0,18%</span>
+    </div>
+    <div class="cotacao">
+      <span class="titulo">Boi Gordo</span>
+      <span class="valor">R$ 238,75</span>
+      <span class="variacao negativa">▼ 0,10%</span>
+    </div>
+  </div>
+  <!-- FIM BARRA DE DATA E COTAÇÕES -->
+
+  <section class="hero-banner">
+    <img src="images/por-do-sol.png" alt="Pôr do Sol" class="banner-img">
+    <div class="banner-texto">
+      <h1>Consultoria e Assessoria para Agricultura Familiar</h1>
+    </div>
+  </section>
+
+  <main>
+    <h1>Bem-vindo à SECAF</h1>
+    <p>Somos especialistas em Consultoria e Assessoria para Agricultura Familiar. Aqui você encontra soluções técnicas e estratégicas para o campo.</p>
+    <p><a href="servicos.html">Conheça nossos serviços</a></p>
+  </main>
+
+  <!-- ÍCONES FLUTUANTES DE REDES SOCIAIS -->
+  <div class="social-float">
+    <a href="https://wa.me/5567996150411?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20da%20SECAF." target="_blank">
+      <img src="images/whatsapp.png" alt="WhatsApp" class="icon-social">
+    </a>
+    <a href="https://www.instagram.com/SEUUSUARIO" target="_blank">
+      <img src="images/instagram.png" alt="Instagram" class="icon-social">
+    </a>
+  </div>
+
+  <footer class="rodape">
+    <div class="rodape-container">
+      <div class="rodape-coluna">
+        <img src="images/logo.png" alt="Logo SECAF" class="rodape-logo">
+      </div>
+
+      <div class="rodape-coluna">
+        <h4>Links úteis</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="rodape-coluna">
+        <h4>Contato</h4>
+        <p><strong>WhatsApp:</strong> (67) 9 9615-0411</p>
+        <p><strong>Email:</strong> hawlysonac@gmail.com</p>
+        <p><strong>Endereço:</strong> Dourados - MS</p>
+      </div>
+    </div>
+
+    <div class="rodape-baixo">
+      <p>© 2025 SECAF - Todos os direitos reservados.</p>
+      <p>"Juntos pelo campo, com responsabilidade e paixão pela terra."</p>
+      <p class="creditos-site">Site desenvolvido por <strong>Renato Ferreira da Cruz</strong></p>
+    </div>
+
+    <div class="rodape-logos">
+      <img src="images/logo-crea.png" alt="CREA-MS">
+      <img src="images/logo-anater.png" alt="ANATER">
+      <img src="images/logo-secaf.png" alt="SECAF">
+    </div>
+  </footer>
+
+  <script>
+    const diasSemana = ["Domingo", "Segunda-feira", "Terça-feira", "Quarta-feira", "Quinta-feira", "Sexta-feira", "Sábado"];
+    const meses = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho", "agosto", "setembro", "outubro", "novembro", "dezembro"];
+    const hoje = new Date();
+    const diaSemana = diasSemana[hoje.getDay()];
+    const dia = hoje.getDate().toString().padStart(2, '0');
+    const mes = meses[hoje.getMonth()];
+    const ano = hoje.getFullYear();
+    const dataFormatada = `${diaSemana}, ${dia} de ${mes} de ${ano}`;
+    document.getElementById('data-atual').textContent = dataFormatada;
+  </script>
+</body>
+</html>
