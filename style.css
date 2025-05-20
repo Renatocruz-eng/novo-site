@@ -176,6 +176,9 @@ nav a:hover {
   border-radius: 8px;
   background-color: #f9f9f9;
   box-shadow: 0 0 6px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .noticia-card h3 {
@@ -186,6 +189,7 @@ nav a:hover {
 .noticia-card a {
   color: #0A621C;
   text-decoration: none;
+  font-weight: bold;
 }
 
 .noticia-card a:hover {
@@ -196,6 +200,18 @@ nav a:hover {
   font-size: 0.9rem;
   color: #333;
 }
+
+.noticia-card img {
+  width: 100%;
+  max-width: 220px;
+  height: auto;
+  display: block;
+  margin: 10px auto 0 auto;
+  border-radius: 6px;
+  object-fit: cover;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
 
 /* Rodapé */
 .rodape {
