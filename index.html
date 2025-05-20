@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -29,24 +30,24 @@
   </section>
 
   <!-- NOVO BLOCO INFORMATIVO -->
-  <section class="info-agro-clima" style="display: flex; justify-content: space-between; padding: 20px; gap: 40px;">
-    <div class="coluna-esquerda" style="flex: 1;">
+  <section class="info-agro-clima">
+    <div class="coluna-esquerda">
       <h2>Preços Atualizados</h2>
-      <ul class="precos-lista">
-        <li><strong>Dólar:</strong> R$ 5,63</li>
-        <li><strong>Soja:</strong> R$ 140,50</li>
-        <li><strong>Milho:</strong> R$ 82,30</li>
-        <li><strong>Boi Gordo:</strong> R$ 238,75</li>
-        <li><strong>Ovos:</strong> R$ 16,90 (30 unid)</li>
-        <li><strong>Frango:</strong> R$ 8,20/kg</li>
-        <li><strong>Verduras:</strong> R$ 3,50 (média por maço)</li>
-        <li><strong>Leite:</strong> R$ 3,90/L</li>
-      </ul>
+      <table class="tabela-precos">
+        <tr><td><strong>Dólar:</strong></td><td>R$ 5,63</td></tr>
+        <tr><td><strong>Soja:</strong></td><td>R$ 140,50</td></tr>
+        <tr><td><strong>Milho:</strong></td><td>R$ 82,30</td></tr>
+        <tr><td><strong>Boi Gordo:</strong></td><td>R$ 238,75</td></tr>
+        <tr><td><strong>Ovos:</strong></td><td>R$ 16,90 (30 unid)</td></tr>
+        <tr><td><strong>Frango:</strong></td><td>R$ 8,20/kg</td></tr>
+        <tr><td><strong>Verduras:</strong></td><td>R$ 3,50</td></tr>
+        <tr><td><strong>Leite:</strong></td><td>R$ 3,90/L</td></tr>
+      </table>
     </div>
 
-    <div class="coluna-direita" style="flex: 1;">
+    <div class="coluna-direita">
       <h2>Clima Atual e Previsão</h2>
-      <div id="clima-info">Carregando clima...</div>
+      <div id="clima-info">Para exibir o clima, adicione sua chave da API OpenWeather em <code>index.html</code>.</div>
       <div>
         <img id="mapa-clima" src="https://www.climatempo.com.br/dist/images/climatempo-og.jpg" alt="Mapa do Clima" style="width: 100%; max-width: 300px; margin-top: 10px;">
       </div>
@@ -59,8 +60,37 @@
     <p><a href="servicos.html">Conheça nossos serviços</a></p>
   </main>
 
-  <footer>
-    <p>© 2025 SECAF - Todos os direitos reservados.</p>
+  <footer class="rodape">
+    <div class="rodape-container">
+      <div class="rodape-coluna">
+        <img src="images/logo.png" alt="Logo SECAF" class="rodape-logo">
+      </div>
+      <div class="rodape-coluna">
+        <h4>Links úteis</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div class="rodape-coluna">
+        <h4>Contato</h4>
+        <p><strong>WhatsApp:</strong> (67) 9 9615-0411</p>
+        <p><strong>Email:</strong> hawlysonac@gmail.com</p>
+        <p><strong>Endereço:</strong> Dourados - MS</p>
+      </div>
+    </div>
+    <div class="rodape-baixo">
+      <p>© 2025 SECAF - Todos os direitos reservados.</p>
+      <p>"Juntos pelo campo, com responsabilidade e paixão pela terra."</p>
+      <p class="creditos-site">Site desenvolvido por <strong>Renato Ferreira da Cruz</strong></p>
+    </div>
+    <div class="rodape-logos">
+      <img src="images/logo-crea.png" alt="CREA-MS">
+      <img src="images/logo-anater.png" alt="ANATER">
+      <img src="images/logo-secaf.png" alt="SECAF">
+    </div>
   </footer>
 
   <script>
@@ -73,24 +103,6 @@
     const ano = hoje.getFullYear();
     const dataFormatada = `${diaSemana}, ${dia} de ${mes} de ${ano}`;
     document.getElementById('data-atual').textContent = dataFormatada;
-
-    // Exemplo com OpenWeatherMap
-    const apiKey = 'SUA_API_KEY';  // Substitua por sua chave real
-    const cidade = 'Dourados,BR';
-
-    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}&lang=pt_br&units=metric`)
-      .then(response => {
-        const data = response.data;
-        const climaHTML = `
-          <p><strong>${data.name}</strong></p>
-          <p>Temperatura: ${data.main.temp}°C</p>
-          <p>Condição: ${data.weather[0].description}</p>
-        `;
-        document.getElementById('clima-info').innerHTML = climaHTML;
-      })
-      .catch(error => {
-        document.getElementById('clima-info').textContent = "Erro ao carregar clima.";
-      });
   </script>
 </body>
 </html>

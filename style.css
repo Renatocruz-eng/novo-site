@@ -12,6 +12,7 @@ body {
   color: #111;
 }
 
+/* Cabeçalho */
 header {
   display: flex;
   justify-content: space-between;
@@ -42,6 +43,7 @@ nav a:hover {
   text-decoration: underline;
 }
 
+/* Data */
 .barra-topo {
   background-color: #0A621C;
   color: #fff;
@@ -80,7 +82,7 @@ nav a:hover {
   text-shadow: 2px 2px 4px #000;
 }
 
-/* Seção de clima e preços */
+/* Seção informativa */
 .info-agro-clima {
   display: flex;
   justify-content: space-between;
@@ -102,44 +104,96 @@ nav a:hover {
   margin-bottom: 12px;
 }
 
-.precos-lista {
-  list-style: none;
-  padding-left: 0;
+/* Tabela de preços */
+.tabela-precos {
+  width: 100%;
+  border-collapse: collapse;
 }
 
-.precos-lista li {
-  margin-bottom: 8px;
+.tabela-precos td {
+  padding: 8px;
   font-size: 1rem;
+  border-bottom: 1px solid #ddd;
 }
 
 /* Rodapé */
-footer {
+.rodape {
   background-color: #0A621C;
   color: white;
-  text-align: center;
-  padding: 20px 10px;
+  font-family: Arial, sans-serif;
   margin-top: 40px;
 }
 
-/* Ícones sociais */
-.social-float {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  z-index: 999;
+.rodape-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px 20px;
   display: flex;
-  flex-direction: column;
-  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
 }
 
-.icon-social {
-  width: 45px;
-  height: 45px;
-  border-radius: 50%;
-  box-shadow: 0 0 5px #666;
+.rodape-coluna {
+  flex: 1 1 250px;
+}
+
+.rodape-coluna h4 {
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: #fff;
+}
+
+.rodape-coluna ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.rodape-coluna ul li {
+  margin-bottom: 6px;
+}
+
+.rodape-coluna ul li a {
+  color: #d4f4dd;
+  text-decoration: none;
+}
+
+.rodape-coluna ul li a:hover {
+  text-decoration: underline;
+}
+
+.rodape-baixo {
+  text-align: center;
+  border-top: 1px solid #ffffff44;
+  padding: 15px 10px;
+  background-color: #0A621C;
+  font-size: 14px;
+}
+
+.creditos-site {
+  margin-top: 6px;
+  font-size: 13px;
+  color: #c1eccc;
+}
+
+.rodape-logos {
+  display: flex;
+  justify-content: flex-end;
+  gap: 20px;
+  padding: 10px 20px;
+  background-color: #0A621C;
+}
+
+.rodape-logos img {
+  height: 40px;
+  object-fit: contain;
+  opacity: 0.9;
   transition: transform 0.3s ease;
 }
 
-.icon-social:hover {
-  transform: scale(1.1);
+.rodape-logos img:hover {
+  transform: scale(1.05);
+  opacity: 1;
 }
