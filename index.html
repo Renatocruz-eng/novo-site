@@ -1,10 +1,10 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <title>SECAF - Início</title>
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
   <header>
@@ -17,39 +17,39 @@
     </nav>
   </header>
 
-  <!-- INÍCIO BARRA DE DATA E COTAÇÕES -->
   <div class="barra-topo">
     <div class="data-atual" id="data-atual"></div>
   </div>
-
-  <div class="cotacoes-container">
-    <div class="cotacao">
-      <span class="titulo">Dólar</span>
-      <span class="valor">R$ 5,63</span>
-      <span class="variacao positiva">▲ 0,35%</span>
-    </div>
-    <div class="cotacao">
-      <span class="titulo">Soja</span>
-      <span class="valor">R$ 140,50</span>
-      <span class="variacao negativa">▼ 0,28%</span>
-    </div>
-    <div class="cotacao">
-      <span class="titulo">Milho</span>
-      <span class="valor">R$ 82,30</span>
-      <span class="variacao positiva">▲ 0,18%</span>
-    </div>
-    <div class="cotacao">
-      <span class="titulo">Boi Gordo</span>
-      <span class="valor">R$ 238,75</span>
-      <span class="variacao negativa">▼ 0,10%</span>
-    </div>
-  </div>
-  <!-- FIM BARRA DE DATA E COTAÇÕES -->
 
   <section class="hero-banner">
     <img src="images/por-do-sol.png" alt="Pôr do Sol" class="banner-img">
     <div class="banner-texto">
       <h1>Consultoria e Assessoria para Agricultura Familiar</h1>
+    </div>
+  </section>
+
+  <!-- NOVO BLOCO INFORMATIVO -->
+  <section class="info-agro-clima" style="display: flex; justify-content: space-between; padding: 20px; gap: 40px;">
+    <div class="coluna-esquerda" style="flex: 1;">
+      <h2>Preços Atualizados</h2>
+      <ul class="precos-lista">
+        <li><strong>Dólar:</strong> R$ 5,63</li>
+        <li><strong>Soja:</strong> R$ 140,50</li>
+        <li><strong>Milho:</strong> R$ 82,30</li>
+        <li><strong>Boi Gordo:</strong> R$ 238,75</li>
+        <li><strong>Ovos:</strong> R$ 16,90 (30 unid)</li>
+        <li><strong>Frango:</strong> R$ 8,20/kg</li>
+        <li><strong>Verduras:</strong> R$ 3,50 (média por maço)</li>
+        <li><strong>Leite:</strong> R$ 3,90/L</li>
+      </ul>
+    </div>
+
+    <div class="coluna-direita" style="flex: 1;">
+      <h2>Clima Atual e Previsão</h2>
+      <div id="clima-info">Carregando clima...</div>
+      <div>
+        <img id="mapa-clima" src="https://www.climatempo.com.br/dist/images/climatempo-og.jpg" alt="Mapa do Clima" style="width: 100%; max-width: 300px; margin-top: 10px;">
+      </div>
     </div>
   </section>
 
@@ -59,51 +59,8 @@
     <p><a href="servicos.html">Conheça nossos serviços</a></p>
   </main>
 
-  <!-- ÍCONES FLUTUANTES DE REDES SOCIAIS -->
-  <div class="social-float">
-    <a href="https://wa.me/5567996150411?text=Olá!%20Gostaria%20de%20mais%20informações%20sobre%20os%20serviços%20da%20SECAF." target="_blank">
-      <img src="images/whatsapp.png" alt="WhatsApp" class="icon-social">
-    </a>
-    <a href="https://www.instagram.com/SEUUSUARIO" target="_blank">
-      <img src="images/instagram.png" alt="Instagram" class="icon-social">
-    </a>
-  </div>
-
-  <footer class="rodape">
-    <div class="rodape-container">
-      <div class="rodape-coluna">
-        <img src="images/logo.png" alt="Logo SECAF" class="rodape-logo">
-      </div>
-
-      <div class="rodape-coluna">
-        <h4>Links úteis</h4>
-        <ul>
-          <li><a href="index.html">Início</a></li>
-          <li><a href="sobre.html">Sobre</a></li>
-          <li><a href="servicos.html">Serviços</a></li>
-          <li><a href="contato.html">Contato</a></li>
-        </ul>
-      </div>
-
-      <div class="rodape-coluna">
-        <h4>Contato</h4>
-        <p><strong>WhatsApp:</strong> (67) 9 9615-0411</p>
-        <p><strong>Email:</strong> hawlysonac@gmail.com</p>
-        <p><strong>Endereço:</strong> Dourados - MS</p>
-      </div>
-    </div>
-
-    <div class="rodape-baixo">
-      <p>© 2025 SECAF - Todos os direitos reservados.</p>
-      <p>"Juntos pelo campo, com responsabilidade e paixão pela terra."</p>
-      <p class="creditos-site">Site desenvolvido por <strong>Renato Ferreira da Cruz</strong></p>
-    </div>
-
-    <div class="rodape-logos">
-      <img src="images/logo-crea.png" alt="CREA-MS">
-      <img src="images/logo-anater.png" alt="ANATER">
-      <img src="images/logo-secaf.png" alt="SECAF">
-    </div>
+  <footer>
+    <p>© 2025 SECAF - Todos os direitos reservados.</p>
   </footer>
 
   <script>
@@ -116,6 +73,24 @@
     const ano = hoje.getFullYear();
     const dataFormatada = `${diaSemana}, ${dia} de ${mes} de ${ano}`;
     document.getElementById('data-atual').textContent = dataFormatada;
+
+    // Exemplo com OpenWeatherMap
+    const apiKey = 'SUA_API_KEY';  // Substitua por sua chave real
+    const cidade = 'Dourados,BR';
+
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}&lang=pt_br&units=metric`)
+      .then(response => {
+        const data = response.data;
+        const climaHTML = `
+          <p><strong>${data.name}</strong></p>
+          <p>Temperatura: ${data.main.temp}°C</p>
+          <p>Condição: ${data.weather[0].description}</p>
+        `;
+        document.getElementById('clima-info').innerHTML = climaHTML;
+      })
+      .catch(error => {
+        document.getElementById('clima-info').textContent = "Erro ao carregar clima.";
+      });
   </script>
 </body>
 </html>
