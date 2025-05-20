@@ -2,25 +2,101 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
   <title>SECAF - Início</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-  <!-- Cabeçalho, banner, boas-vindas e clima omitidos para brevidade -->
 
-  <section class="noticias-agro" style="max-width: 1100px; margin: 0 auto 40px auto; padding: 0 20px;">
-    <h2 style="color: #0A621C; text-align: center; margin-bottom: 20px;">Notícias sobre Agricultura e Agronegócio</h2>
-    <div id="feed-agro" style="display: flex; gap: 30px; justify-content: space-between; flex-wrap: wrap;">
+  <header>
+    <img src="images/logo.png" alt="Logo SECAF" class="logo" />
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="servicos.html">Serviços</a>
+      <a href="contato.html">Contato</a>
+    </nav>
+  </header>
+
+  <div class="barra-topo">
+    <div class="data-atual" id="data-atual"></div>
+  </div>
+
+  <section class="hero-banner">
+    <img src="images/por-do-sol.png" alt="Pôr do Sol" class="banner-img" />
+    <div class="banner-texto">
+      <h1>Consultoria e Assessoria para Agricultura Familiar</h1>
+    </div>
+  </section>
+
+  <section class="boas-vindas">
+    <h1>Bem-vindo à SECAF</h1>
+    <p>Somos especialistas em Consultoria e Assessoria para Agricultura Familiar. Aqui você encontra soluções técnicas e estratégicas para o campo.</p>
+    <a href="servicos.html">Conheça nossos serviços</a>
+  </section>
+
+  <section class="info-agro-clima">
+    <div class="coluna-esquerda">
+      <h2>Preços Atualizados</h2>
+      <table class="tabela-precos">
+        <tr><td><strong>Dólar:</strong></td><td>R$ 5,63</td></tr>
+        <tr><td><strong>Soja:</strong></td><td>R$ 140,50</td></tr>
+        <tr><td><strong>Milho:</strong></td><td>R$ 82,30</td></tr>
+        <tr><td><strong>Boi Gordo:</strong></td><td>R$ 238,75</td></tr>
+        <tr><td><strong>Ovos:</strong></td><td>R$ 16,90 (30 unid)</td></tr>
+        <tr><td><strong>Frango:</strong></td><td>R$ 8,20/kg</td></tr>
+        <tr><td><strong>Verduras:</strong></td><td>R$ 3,50</td></tr>
+        <tr><td><strong>Leite:</strong></td><td>R$ 3,90/L</td></tr>
+      </table>
+    </div>
+
+    <div class="coluna-direita">
+      <h2>Clima Atual e Previsão</h2>
+      <div id="clima-info">Carregando clima...</div>
+      <div>
+        <img id="mapa-clima" src="https://www.climatempo.com.br/dist/images/climatempo-og.jpg" alt="Mapa do Clima" style="width: 100%; max-width: 300px; margin-top: 10px;">
+      </div>
+    </div>
+  </section>
+
+  <section class="noticias-agro">
+    <h2>Notícias sobre Agricultura e Agronegócio</h2>
+    <div id="feed-agro">
       <p>Carregando notícias...</p>
     </div>
   </section>
 
   <footer class="rodape">
+    <div class="rodape-container">
+      <div class="rodape-coluna">
+        <img src="images/logo.png" alt="Logo SECAF" class="rodape-logo">
+      </div>
+      <div class="rodape-coluna">
+        <h4>Links úteis</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="contato.html">Contato</a></li>
+        </ul>
+      </div>
+      <div class="rodape-coluna">
+        <h4>Contato</h4>
+        <p><strong>WhatsApp:</strong> (67) 9 9615-0411</p>
+        <p><strong>Email:</strong> hawlysonac@gmail.com</p>
+        <p><strong>Endereço:</strong> Dourados - MS</p>
+      </div>
+    </div>
     <div class="rodape-baixo">
       <p>© 2025 SECAF - Todos os direitos reservados.</p>
+      <p>"Juntos pelo campo, com responsabilidade e paixão pela terra."</p>
       <p class="creditos-site">Site desenvolvido por <strong>Renato Ferreira da Cruz</strong></p>
+    </div>
+    <div class="rodape-logos">
+      <img src="images/logo-crea.png" alt="CREA-MS">
+      <img src="images/logo-anater.png" alt="ANATER">
+      <img src="images/logo-secaf.png" alt="SECAF">
     </div>
   </footer>
 
@@ -33,29 +109,41 @@
     const mes = meses[hoje.getMonth()];
     const ano = hoje.getFullYear();
     const dataFormatada = `${diaSemana}, ${dia} de ${mes} de ${ano}`;
-    document.getElementById('data-atual') && (document.getElementById('data-atual').textContent = dataFormatada);
+    document.getElementById('data-atual').textContent = dataFormatada;
 
-    // CLIMA OMITIDO
+    const apiKey = '29fec4bc6985f16fc5996e06b5e80762';
+    const cidade = 'Dourados,BR';
 
-    // NOTÍCIAS RSS - Canal Rural via RSS2JSON
+    axios.get(`https://api.openweathermap.org/data/2.5/weather?q=${cidade}&appid=${apiKey}&lang=pt_br&units=metric`)
+      .then(response => {
+        const data = response.data;
+        const climaHTML = `
+          <p><strong>${data.name}</strong></p>
+          <p>Temperatura: ${data.main.temp}°C</p>
+          <p>Condição: ${data.weather[0].description}</p>
+        `;
+        document.getElementById('clima-info').innerHTML = climaHTML;
+      })
+      .catch(error => {
+        document.getElementById('clima-info').textContent = "Erro ao carregar clima.";
+      });
+
+    // RSS Notícias
     const rssUrl = 'https://www.canalrural.com.br/feed/';
     const apiUrl = `https://api.rss2json.com/v1/api.json?rss_url=${encodeURIComponent(rssUrl)}`;
 
     axios.get(apiUrl)
       .then(res => {
-        const noticias = res.data.items.slice(0, 3); // 3 últimas
+        const noticias = res.data.items.slice(0, 3);
         const container = document.getElementById("feed-agro");
         container.innerHTML = "";
         noticias.forEach(item => {
           const div = document.createElement("div");
-          div.style.flex = "1 1 30%";
-          div.style.border = "1px solid #ddd";
-          div.style.padding = "10px";
-          div.style.borderRadius = "8px";
-          div.style.backgroundColor = "#f9f9f9";
+          div.className = "noticia-card";
           div.innerHTML = `
-            <h3 style="font-size: 1rem;"><a href="${item.link}" target="_blank">${item.title}</a></h3>
-            <p style="font-size: 0.9rem;">${item.description.slice(0, 100)}...</p>
+            <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
+            <p>${item.description.slice(0, 100)}...</p>
+            ${item.thumbnail ? `<img src="${item.thumbnail}" alt="Imagem da notícia">` : ""}
           `;
           container.appendChild(div);
         });
