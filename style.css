@@ -82,47 +82,13 @@ nav a:hover {
   text-shadow: 2px 2px 4px #000;
 }
 
-/* Boas-vindas */
-.boas-vindas {
-  max-width: 1100px;
-  margin: 30px auto 0 auto;
-  padding: 0 20px;
-  text-align: center;
-}
-
-.boas-vindas h1 {
-  color: #0A621C;
-  margin-bottom: 10px;
-}
-
-.boas-vindas p {
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-}
-
-.boas-vindas a {
-  display: inline-block;
-  background-color: #0A621C;
-  color: white;
-  text-decoration: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  font-weight: bold;
-}
-
-.boas-vindas a:hover {
-  background-color: #084d15;
-}
-
-/* Clima e Preços */
+/* Seção informativa */
 .info-agro-clima {
   display: flex;
   justify-content: space-between;
-  padding: 30px 20px;
+  padding: 20px;
   gap: 40px;
   flex-wrap: wrap;
-  max-width: 1100px;
-  margin: 0 auto 60px auto;
 }
 
 .coluna-esquerda, .coluna-direita {
@@ -138,6 +104,7 @@ nav a:hover {
   margin-bottom: 12px;
 }
 
+/* Tabela de preços */
 .tabela-precos {
   width: 100%;
   border-collapse: collapse;
@@ -147,54 +114,6 @@ nav a:hover {
   padding: 8px;
   font-size: 1rem;
   border-bottom: 1px solid #ddd;
-}
-
-/* Notícias RSS */
-.noticias-agro {
-  max-width: 1100px;
-  margin: 0 auto 40px auto;
-  padding: 0 20px;
-}
-
-.noticias-agro h2 {
-  color: #0A621C;
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-#feed-agro {
-  display: flex;
-  gap: 30px;
-  justify-content: space-between;
-  flex-wrap: wrap;
-}
-
-.noticia-card {
-  flex: 1 1 30%;
-  border: 1px solid #ddd;
-  padding: 10px;
-  border-radius: 8px;
-  background-color: #f9f9f9;
-  box-shadow: 0 0 6px rgba(0,0,0,0.05);
-}
-
-.noticia-card h3 {
-  font-size: 1rem;
-  margin-bottom: 6px;
-}
-
-.noticia-card a {
-  color: #0A621C;
-  text-decoration: none;
-}
-
-.noticia-card a:hover {
-  text-decoration: underline;
-}
-
-.noticia-card p {
-  font-size: 0.9rem;
-  color: #333;
 }
 
 /* Rodapé */
