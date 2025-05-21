@@ -294,3 +294,14 @@ nav a:hover {
   transform: scale(1.05);
   opacity: 1;
 }
+.whatsapp-float,
+.instagram-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 999;
+}
+
+.instagram-float {
+  bottom: 90px; /* pra não sobrepor o WhatsApp */
+}
