@@ -18,12 +18,12 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 10px 30px;
-  background-color: #ffffff;
+  background-color: #0A621C;
   border-bottom: 2px solid #0A621C;
 }
 
 .logo {
-  height: 50px;
+  height: 80px;
 }
 
 nav {
@@ -35,7 +35,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: #0A621C;
+  color: #fff;
   font-weight: bold;
 }
 
