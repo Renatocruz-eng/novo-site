@@ -341,3 +341,30 @@ nav a:hover {
 .icon-social:hover {
   transform: scale(1.1);
 }
+/* Estilo moderno para os botões da página de serviços */
+.botoes-servicos {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  justify-content: center;
+  padding: 30px 20px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.botoes-servicos a button {
+  background-color: #0A621C;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.botoes-servicos a button:hover {
+  background-color: #084d15;
+  transform: translateY(-2px);
+}
