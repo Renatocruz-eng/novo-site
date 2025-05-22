@@ -305,3 +305,17 @@ nav a:hover {
 .instagram-float {
   bottom: 90px; /* pra não sobrepor o WhatsApp */
 }
+/* Estilo dos botões flutuantes de WhatsApp e Instagram */
+.whatsapp-float img,
+.instagram-float img {
+  width: 50px; /* define um tamanho padrão */
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+  transition: transform 0.3s ease;
+}
+
+.whatsapp-float img:hover,
+.instagram-float img:hover {
+  transform: scale(1.1);
+}
