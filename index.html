@@ -59,7 +59,23 @@
 
   <div class="coluna-direita" id="clima-detalhado">
     <h2>Clima Detalhado - Open-Meteo</h2>
-    <div id="info-clima-detalhado">Carregando dados do clima...</div>
+    <div id="info-clima-detalhado"><section id="clima">
+  <h2>Informações do Clima - Dourados/MS</h2>
+  <div class="clima-grid">
+    <div class="clima-item"><strong>Temperatura:</strong> <span id="temperature_2m">--</span> °C</div>
+    <div class="clima-item"><strong>Umidade Relativa:</strong> <span id="relative_humidity_2m">--</span> %</div>
+    <div class="clima-item"><strong>Temp. Solo (0cm):</strong> <span id="soil_temperature_0cm">--</span> °C</div>
+    <div class="clima-item"><strong>Umidade do Solo (0–1cm):</strong> <span id="soil_moisture_0_to_1cm">--</span></div>
+    <div class="clima-item"><strong>Evapotranspiração:</strong> <span id="evapotranspiration">--</span> mm</div>
+    <div class="clima-item"><strong>Evapo. FAO:</strong> <span id="et0_fao_evapotranspiration">--</span> mm</div>
+    <div class="clima-item"><strong>Velocidade do Vento:</strong> <span id="wind_speed_10m">--</span> km/h</div>
+    <div class="clima-item"><strong>Prob. de Chuva:</strong> <span id="precipitation_probability">--</span> %</div>
+    <div class="clima-item"><strong>Chuva:</strong> <span id="rain">--</span> mm</div>
+    <div class="clima-item"><strong>Índice UV:</strong> <span id="uv_index">--</span></div>
+    <div class="clima-item"><strong>Temp. Bulbo Úmido:</strong> <span id="wet_bulb_temperature_2m">--</span> °C</div>
+  </div>
+</section>
+</div>
   </div>
 </section>
 
@@ -110,26 +126,30 @@
   const hoje = new Date();
   document.getElementById('data-atual').textContent = `${diasSemana[hoje.getDay()]}, ${hoje.getDate().toString().padStart(2, '0')} de ${meses[hoje.getMonth()]} de ${hoje.getFullYear()}`;
 
-  const climaDetalhadoURL = "https://api.open-meteo.com/v1/forecast?latitude=52.52&longitude=13.41&daily=rain_sum,et0_fao_evapotranspiration&current=temperature_2m,relative_humidity_2m,precipitation,is_day,wind_speed_10m,wind_direction_10m&timezone=America/Sao_Paulo";
+  const climaDetalhadoURL = "https://api.open-meteo.com/v1/forecast?latitude=-22.2211&longitude=-54.8056&hourly=temperature_2m,relative_humidity_2m,soil_temperature_0cm,soil_moisture_0_to_1cm,evapotranspiration,et0_fao_evapotranspiration,wind_speed_10m,precipitation_probability,rain,uv_index,wet_bulb_temperature_2m";
 
   fetch(climaDetalhadoURL)
-    .then(res => res.json())
-    .then(data => {
-      const atual = data.current;
-      const hoje = data.daily;
-      const climaHTML = `
-        <p><strong>🌡️ Temp. Atual:</strong> ${atual.temperature_2m}°C</p>
-        <p><strong>💦 Umidade:</strong> ${atual.relative_humidity_2m}%</p>
-        <p><strong>🌧️ Precipitação:</strong> ${atual.precipitation} mm</p>
-        <p><strong>💨 Vento:</strong> ${atual.wind_speed_10m} km/h</p>
-        <p><strong>🧭 Direção:</strong> ${atual.wind_direction_10m}°</p>
-        <p><strong>☀️ É dia?</strong> ${atual.is_day ? "Sim" : "Não"}</p>
-        <p><strong>🌱 Evapotranspiração (hoje):</strong> ${hoje.et0_fao_evapotranspiration[0]} mm</p>
-        <p><strong>🌧️ Chuva (hoje):</strong> ${hoje.rain_sum[0]} mm</p>
-      `;
-      document.getElementById("info-clima-detalhado").innerHTML = climaHTML;
-    });
+  .then(res => res.json())
+  .then(data => {
+    const horaAtual = new Date().getHours();
 
+    const atualizar = (id, campo) => {
+      const valor = data.hourly[campo] ? data.hourly[campo][horaAtual] : '--';
+      document.getElementById(id).innerText = valor !== undefined ? valor : '--';
+    };
+
+    atualizar("temperature_2m", "temperature_2m");
+    atualizar("relative_humidity_2m", "relative_humidity_2m");
+    atualizar("soil_temperature_0cm", "soil_temperature_0cm");
+    atualizar("soil_moisture_0_to_1cm", "soil_moisture_0_to_1cm");
+    atualizar("evapotranspiration", "evapotranspiration");
+    atualizar("et0_fao_evapotranspiration", "et0_fao_evapotranspiration");
+    atualizar("wind_speed_10m", "wind_speed_10m");
+    atualizar("precipitation_probability", "precipitation_probability");
+    atualizar("rain", "rain");
+    atualizar("uv_index", "uv_index");
+    atualizar("wet_bulb_temperature_2m", "wet_bulb_temperature_2m");
+  });
   axios.get("https://api.rss2json.com/v1/api.json?rss_url=https://www.canalrural.com.br/feed/")
     .then(res => {
       const noticias = res.data.items.slice(0, 3);
