@@ -166,28 +166,21 @@
   <img src="images/instagram.png" alt="Nosso Instagram" style="width:60px; height:60px;">
 </a>
 <script>
-  function extrairImagemDoHTML(html) {
-    const match = html.match(/<img[^>]+src="([^">]+)"/);
-    return match ? match[1] : null;
-  }
-
-  axios.get("https://api.rss2json.com/v1/api.json?rss_url=https://www.agrolink.com.br/rss/noticias.xml&api_key=p2r9yydziwdemrw2trgbtubwqhlthlylqmp8nlip")
-
+ axios.get("https://secaf-rss-api.vercel.app/api/rss")
 
 
     .then(res => {
-      const noticias = res.data.items.slice(0, 3); // mostra só 3
+      const noticias = res.data.items.slice(0, 3);
       const container = document.getElementById("feed-agro");
       container.innerHTML = "";
 
       noticias.forEach(item => {
-        const imagem = extrairImagemDoHTML(item.description);
         const div = document.createElement("div");
         div.className = "noticia-card";
         div.innerHTML = `
-          <img src="${imagem}" alt="Imagem da notícia">
           <h3><a href="${item.link}" target="_blank">${item.title}</a></h3>
-          <p>${item.description.replace(/<[^>]+>/g, '').slice(0, 150)}...</p>
+          <p>${item.description.slice(0, 100)}...</p>
+          ${item.thumbnail ? `<img src="${item.thumbnail}" alt="Imagem da notícia">` : ""}
         `;
         container.appendChild(div);
       });
@@ -197,5 +190,6 @@
       document.getElementById("feed-agro").innerHTML = "<p>Não foi possível carregar as notícias.</p>";
     });
 </script>
+
 </body>
 </html>
